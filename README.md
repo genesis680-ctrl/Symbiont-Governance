@@ -25,7 +25,7 @@ graph TD
     C --> F[Check Exceptions]
     F --> G{Verdict}
 
-    G -->|CRITICAL| H[❌ BLOCK DEPLOY]
-    G -->|LOW| I[⚠️ WARNING ONLY]
-    G -->|CLEAN| J[✅ DEPLOY APPROVED]
+    G -->|CRITICAL| H[ BLOCK DEPLOY]
+    G -->|LOW| I[  WARNING ONLY]
+    G -->|CLEAN| J[ DEPLOY APPROVED]
 ```
