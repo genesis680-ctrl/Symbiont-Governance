@@ -36,14 +36,17 @@ class GovernanceEngine:
         return False
 
     def scan_project(self, root_dir="."):
-        print(f"🛡️  SYMBIONT ENGINE v2.1 (Enterprise) - Iniciando Scan...")
+        print(f"🛡️  SYMBIONT ENGINE v2.2 (Full Spectrum) - Iniciando Scan...")
         start_time = datetime.now()
 
         for root, _, files in os.walk(root_dir):
             if ".git" in root or "engine" in root: continue
 
             for filename in files:
-                if not filename.endswith(('.py', '.md', '.json', '.yml')): continue
+                # --- AQUI ESTÁ A MUDANÇA IMPORTANTE ---
+                # Agora o motor lê chaves (.pem, .key), configurações (.env) e texto (.txt)
+                if not filename.endswith(('.py', '.md', '.json', '.yml', '.txt', '.pem', '.key', '.env')): 
+                    continue
                 
                 filepath = os.path.join(root, filename)
                 self.stats["files_scanned"] += 1
@@ -69,7 +72,6 @@ class GovernanceEngine:
                 self.stats["rules_executed"] += 1
                 
                 if findings:
-                    # AQUI ACONTECE A MÁGICA DA WHITELIST
                     if self.is_whitelisted(filepath, rule_config['id']):
                         print(f"⚠️  ALERTA IGNORADO (Whitelist): {filepath} [{rule_config['id']}]")
                         self.stats["whitelisted_events"] += 1
@@ -91,7 +93,7 @@ class GovernanceEngine:
                 "project": self.manifest.get('project', 'Unknown'),
                 "scan_date": datetime.now().isoformat(),
                 "duration_seconds": duration,
-                "version": "2.1.0"
+                "version": "2.2.0"
             },
             "summary": {
                 "total_files": self.stats["files_scanned"],

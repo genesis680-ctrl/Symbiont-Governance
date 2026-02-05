@@ -1,6 +1,6 @@
 {
   "project": "Symbiont Governance Protocol",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "active_rules": [
     {
       "id": "R-001",
@@ -8,6 +8,13 @@
       "description": "Impede o envio de credenciais da Amazon AWS.",
       "severity": "CRITICAL",
       "file": "rules/r001_aws_secret.py"
+    },
+    {
+      "id": "R-002",
+      "name": "Block Private Keys",
+      "description": "Impede vazamento de chaves RSA/SSH/EC privadas.",
+      "severity": "CRITICAL",
+      "file": "rules/r002_private_keys.py"
     }
   ]
 }
