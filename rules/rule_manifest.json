@@ -1,6 +1,6 @@
 {
   "project": "Symbiont Governance Protocol",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "active_rules": [
     {
       "id": "R-001",
@@ -15,6 +15,13 @@
       "description": "Impede vazamento de chaves RSA/SSH/EC privadas.",
       "severity": "CRITICAL",
       "file": "rules/r002_private_keys.py"
+    },
+    {
+      "id": "R-003",
+      "name": "Technical Debt",
+      "description": "Avisa sobre tarefas pendentes (TODO/FIXME).",
+      "severity": "LOW",
+      "file": "rules/r003_todo_check.py"
     }
   ]
 }
