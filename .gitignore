@@ -1,0 +1,13 @@
+# Logs e Relatórios
+audit_report.json
+*.log
+
+# Python Cache (Lixo de compilação)
+__pycache__/
+*.pyc
+
+# Chaves e Ambientes (Segurança)
+.env
+.venv
+env/
+
