@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "approved_exceptions": [
+    {
+      "file": "./examples/violation.py",
+      "rule_id": "R-001",
+      "reason": "Arquivo didático para demonstração de falha",
+      "approved_by": "CISO"
+    }
+  ]
+}
+

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "project": "Symbiont Governance Protocol",
+    "scan_date": "2026-02-05T11:37:41.257184",
+    "duration_seconds": 0.013305,
+    "version": "2.1.0"
+  },
+  "summary": {
+    "total_files": 6,
+    "violations_blocked": 0,
+    "violations_allowed": 1,
+    "status": "PASSED"
+  },
+  "violations": []
+}
