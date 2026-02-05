@@ -16,10 +16,12 @@
 	
 ```mermaid
 graph TD
-    A[Dev Commits Code] -->|Push| B[GitHub Actions]
+    A[Developer Commit] -->|Push| B[GitHub Actions]
     B --> C[Symbiont Engine]
+
     C --> D[Load Rules]
     D --> E[Rule Manifest]
+
     C --> F[Check Exceptions]
     F --> G{Verdict}
 
