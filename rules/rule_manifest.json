@@ -1,0 +1,14 @@
+{
+  "project": "Symbiont Governance Protocol",
+  "version": "1.0.0",
+  "active_rules": [
+    {
+      "id": "R-001",
+      "name": "Block AWS Keys",
+      "description": "Impede o envio de credenciais da Amazon AWS.",
+      "severity": "CRITICAL",
+      "file": "rules/r001_aws_secret.py"
+    }
+  ]
+}
+
