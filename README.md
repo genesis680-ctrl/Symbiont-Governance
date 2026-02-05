@@ -28,3 +28,19 @@ O sistema opera em três camadas:
 # Executar auditoria manual antes do commit
 python engine/validator.py
 
+## 📊 Fluxo de Auditoria (Workflow)
+
+```mermaid
+graph TD
+    A[Dev Commits Code] -->|Push| B(GitHub Actions)
+    B --> C{Symbiont Engine}
+    C -->|Load Rules| D[Rule Manifest]
+    C -->|Check Exceptions| E[Whitelist DB]
+    C --> F{Verdict?}
+    F -- CRITICAL Violation --> G[❌ BLOCK DEPLOY]
+    F -- LOW Severity --> H[⚠️ WARNING ONLY]
+    F -- Clean --> I[✅ DEPLOY APPROVED]
+    
+    style G fill:#ff0000,stroke:#333,stroke-width:2px,color:#fff
+    style I fill:#00ff00,stroke:#333,stroke-width:2px,color:#000
+
