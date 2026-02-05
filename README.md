@@ -12,27 +12,18 @@
 - **Arquitetura Modular:** Regras via Manifesto JSON.
 
 ## 🛠️ Arquitetura do Sistema
-1.  **The Manifest (`rule_manifest.json`):** A constituição do projeto.
-2.  **The Rules (`/rules`):** Scripts de verificação.
-3.  **The Engine (`validator.py`):** O orquestrador.
-
-## 📦 Instalação e Uso
-
-### Integração Local (Desenvolvedores)
-
-```bash
-# Executar auditoria manual antes do commit
-python engine/validator.py
-
+```
+	
+```mermaid
 graph TD
-    A[Dev Commits Code] -->|Push| B(GitHub Actions)
-    B --> C{Symbiont Engine}
-    C -->|Load Rules| D[Rule Manifest]
-    C -->|Check Exceptions| E[Whitelist DB]
-    C --> F{Verdict?}
-    F -- CRITICAL Violation --> G[❌ BLOCK DEPLOY]
-    F -- LOW Severity --> H[⚠️ WARNING ONLY]
-    F -- Clean --> I[✅ DEPLOY APPROVED]
-    
-    style G fill:#ff0000,stroke:#333,stroke-width:2px,color:#fff
-    style I fill:#00ff00,stroke:#333,stroke-width:2px,color:#000
+    A[Dev Commits Code] -->|Push| B[GitHub Actions]
+    B --> C[Symbiont Engine]
+    C --> D[Load Rules]
+    D --> E[Rule Manifest]
+    C --> F[Check Exceptions]
+    F --> G{Verdict}
+
+    G -->|CRITICAL| H[❌ BLOCK DEPLOY]
+    G -->|LOW| I[⚠️ WARNING ONLY]
+    G -->|CLEAN| J[✅ DEPLOY APPROVED]
+```
